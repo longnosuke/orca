@@ -10,12 +10,14 @@ import {
   Palette,
   PanelBottom,
   PanelRight,
+  LayoutList,
   PanelLeft,
   PenTool,
   Server,
   SquareTerminal
 } from 'lucide-react'
 import { PluginSidebarCardUseButton } from './PluginSidebarCardUseButton'
+import { PluginWorkspaceListUseButton } from './PluginWorkspaceListUseButton'
 import type {
   PluginHostListEntry,
   PluginMarketplaceHostInstallPreview
@@ -109,6 +111,7 @@ const CONTRIBUTION_ICON: Record<PluginContributionKind, React.ReactNode> = {
   terminalThemes: <SquareTerminal />,
   iconThemes: <Blocks />,
   sidebarCards: <PanelLeft />,
+  workspaceLists: <LayoutList />,
   syntaxes: <Highlighter />,
   languagePacks: <Languages />,
   panels: <PanelRight />,
@@ -261,6 +264,8 @@ function useContributionRowActions(
       }
       case 'sidebarCards':
         return <PluginSidebarCardUseButton cardId={id} />
+      case 'workspaceLists':
+        return <PluginWorkspaceListUseButton listId={id} />
       case 'themes':
       case 'terminalThemes':
       case 'customEditors':
